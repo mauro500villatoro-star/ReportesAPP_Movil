@@ -1,0 +1,7 @@
+{
+  "name": "FaceVerify",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
