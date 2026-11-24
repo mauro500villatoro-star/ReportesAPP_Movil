@@ -1,21 +1,210 @@
-<ion-header [translucent]="true">
+<ion-header class="main-header">
   <ion-toolbar>
-    <ion-title> Blank </ion-title>
+    <div class="brand">
+      <div class="brand-icon">
+        <ion-icon name="scan-outline"></ion-icon>
+      </div>
+
+      <div class="brand-text">
+        <strong>FaceVerify</strong>
+        <span>Identidad y seguridad</span>
+      </div>
+    </div>
+
+    <ion-button
+      fill="clear"
+      class="header-button"
+      slot="end"
+      (click)="mostrarInfo()">
+
+      <ion-icon
+        name="information-circle-outline"
+        slot="icon-only">
+      </ion-icon>
+
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="home-content">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>
-      Start with Ionic
-      <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a>
-    </p>
-  </div>
+  <main class="page-container">
+
+    <!-- Bienvenida -->
+    <section class="welcome-section">
+
+      <span class="welcome-label">
+        SISTEMA DE VERIFICACIÓN BIOMÉTRICA
+      </span>
+
+      <h1>Bienvenido a <span>FaceVerify</span></h1>
+
+      <p>
+        Registra personas y verifica su identidad mediante
+        reconocimiento facial y prueba de vida.
+      </p>
+
+    </section>
+
+    <!-- Tarjeta principal -->
+    <section class="liveness-card">
+
+      <div class="liveness-decoration decoration-one"></div>
+      <div class="liveness-decoration decoration-two"></div>
+
+      <div class="liveness-content">
+
+        <div class="liveness-icon">
+          <ion-icon name="scan-outline"></ion-icon>
+        </div>
+
+        <span class="liveness-label">
+          VERIFICACIÓN BIOMÉTRICA
+        </span>
+
+        <h2>Prueba de vida facial</h2>
+
+        <p>
+          Comprueba que la persona está físicamente presente
+          y verifica si corresponde con la identidad registrada.
+        </p>
+
+        <ion-button
+          expand="block"
+          class="liveness-button"
+          (click)="mostrarProximamente('Prueba de vida')">
+
+          Iniciar prueba de vida
+
+          <ion-icon
+            name="arrow-forward-outline"
+            slot="end">
+          </ion-icon>
+
+        </ion-button>
+
+      </div>
+
+      <div class="liveness-illustration">
+        <ion-icon name="scan-circle-outline"></ion-icon>
+      </div>
+
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="statistics-section">
+
+      <h2>Resumen general</h2>
+
+      <div class="statistics-grid">
+
+        <article class="stat-card">
+
+          <div class="stat-icon people-icon">
+            <ion-icon name="people-outline"></ion-icon>
+          </div>
+
+          <div class="stat-info">
+            <strong>{{ totalPersonas }}</strong>
+            <span>Personas registradas</span>
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- Accesos principales -->
+    <section class="options-section">
+
+      <div class="section-heading">
+        <div>
+          <h2>Accesos principales</h2>
+          <p>Administra los registros y verificaciones.</p>
+        </div>
+      </div>
+
+      <div class="options-grid">
+
+        <!-- Registrar persona -->
+        <button
+          class="option-card"
+          routerLink="/register-person">
+
+          <div class="option-icon register-icon">
+            <ion-icon name="person-add-outline"></ion-icon>
+          </div>
+
+          <div class="option-text">
+            <strong>Registrar persona</strong>
+            <span>Agregar datos y fotografía de referencia.</span>
+          </div>
+
+          <ion-icon
+            name="chevron-forward-outline"
+            class="option-arrow">
+          </ion-icon>
+
+        </button>
+
+        <!-- Personas registradas -->
+        <button
+          class="option-card"
+          routerLink="/personas-registradas">
+
+          <div class="option-icon list-icon">
+            <ion-icon name="people-outline"></ion-icon>
+          </div>
+
+          <div class="option-text">
+            <strong>Personas registradas</strong>
+            <span>Consultar y administrar las personas.</span>
+          </div>
+
+          <ion-icon
+            name="chevron-forward-outline"
+            class="option-arrow">
+          </ion-icon>
+
+        </button>
+
+        <!-- Verificar identidad -->
+        <button
+          class="option-card"
+          (click)="mostrarProximamente('Verificación de identidad')">
+
+          <div class="option-icon verify-icon">
+            <ion-icon name="finger-print-outline"></ion-icon>
+          </div>
+
+          <div class="option-text">
+            <strong>Verificar identidad</strong>
+            <span>Comprobar la identidad de una persona.</span>
+          </div>
+
+          <ion-icon
+            name="chevron-forward-outline"
+            class="option-arrow">
+          </ion-icon>
+
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="home-footer">
+
+      <ion-icon name="shield-checkmark-outline"></ion-icon>
+
+      <span>
+        FaceVerify · Sistema de reconocimiento facial
+      </span>
+
+    </footer>
+
+  </main>
+
 </ion-content>

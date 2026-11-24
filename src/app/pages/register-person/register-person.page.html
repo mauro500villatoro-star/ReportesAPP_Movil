@@ -1,0 +1,192 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/home"
+        text="Volver">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Registrar persona</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="register-content">
+
+  <div class="register-container">
+
+    <!-- Encabezado -->
+    <section class="page-heading">
+
+      <div class="heading-icon">
+        <ion-icon name="person-outline"></ion-icon>
+      </div>
+
+      <h1>Nuevo registro</h1>
+
+      <p>
+        Ingresa los datos de la persona y agrega una fotografía
+        que utilizaremos como referencia para verificar su identidad.
+      </p>
+
+    </section>
+
+    <!-- Fotografía de referencia -->
+    <ion-card class="photo-card">
+      <ion-card-content>
+
+        <div class="photo-placeholder">
+
+          <!-- Si existe una fotografía, mostrarla -->
+          <ng-container *ngIf="fotoPreview; else sinFotografia">
+
+            <img
+              [src]="fotoPreview"
+              alt="Fotografía de referencia"
+              class="photo-image">
+
+            <strong>Fotografía seleccionada</strong>
+
+            <span>
+              Puedes cambiarla utilizando los botones.
+            </span>
+
+          </ng-container>
+
+          <!-- Si no existe fotografía -->
+          <ng-template #sinFotografia>
+
+            <ion-icon name="person-outline"></ion-icon>
+
+            <strong>Fotografía de referencia</strong>
+
+            <span>
+              Agrega una imagen del rostro de la persona.
+            </span>
+
+          </ng-template>
+
+        </div>
+
+        <!-- Botones de cámara y galería -->
+        <div class="photo-buttons">
+
+          <ion-button
+            expand="block"
+            fill="outline"
+            (click)="seleccionarFoto('cámara')">
+
+            <ion-icon
+              name="camera-outline"
+              slot="start">
+            </ion-icon>
+
+            Tomar fotografía
+
+          </ion-button>
+
+          <ion-button
+            expand="block"
+            fill="outline"
+            (click)="seleccionarFoto('galería')">
+
+            <ion-icon
+              name="images-outline"
+              slot="start">
+            </ion-icon>
+
+            Seleccionar de galería
+
+          </ion-button>
+
+        </div>
+
+        <p class="photo-note">
+          La fotografía debe mostrar claramente el rostro de la persona.
+        </p>
+
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Información personal -->
+    <section class="form-section">
+
+      <h2>Información personal</h2>
+
+      <p class="section-description">
+        Completa los datos de identificación.
+      </p>
+
+      <!-- Nombre -->
+      <div class="form-field">
+
+        <label>Nombre</label>
+
+        <ion-input
+          [(ngModel)]="nombre"
+          name="nombre"
+          placeholder="Ej. Juanita"
+          fill="outline"
+          type="text">
+        </ion-input>
+
+      </div>
+
+      <!-- Apellidos -->
+      <div class="form-field">
+
+        <label>Apellidos</label>
+
+        <ion-input
+          [(ngModel)]="apellidos"
+          name="apellidos"
+          placeholder="Ej. López García"
+          fill="outline"
+          type="text">
+        </ion-input>
+
+      </div>
+
+      <!-- Identificación -->
+      <div class="form-field">
+
+        <label>Número de identificación</label>
+
+        <ion-input
+          [(ngModel)]="identificacion"
+          name="identificacion"
+          placeholder="Ingrese el número de identificación"
+          fill="outline"
+          type="text">
+        </ion-input>
+
+      </div>
+
+    </section>
+
+    <!-- Continuar -->
+    <section class="form-actions">
+
+      <ion-button
+        expand="block"
+        class="save-button"
+        (click)="guardarPersona()">
+
+        <ion-icon
+          name="save-outline"
+          slot="start">
+        </ion-icon>
+
+        Continuar registro
+
+      </ion-button>
+
+      <p>
+        La fotografía será necesaria para completar el registro.
+      </p>
+
+    </section>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,249 @@
+
+.people-content {
+  --background: #f4f7fb;
+}
+
+.people-container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 24px 18px 35px;
+}
+
+.page-heading {
+  margin-bottom: 22px;
+
+  .heading-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #e5f1fc;
+    color: #1769aa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ion-icon {
+      font-size: 27px;
+    }
+  }
+
+  h1 {
+    font-size: 23px;
+    font-weight: 800;
+    color: #17324d;
+    margin: 15px 0 8px;
+  }
+
+  p {
+    color: #718096;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.summary-card {
+  background: #ffffff;
+  border: 1px solid #e5edf5;
+  border-radius: 15px;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  span {
+    display: block;
+    font-size: 12px;
+    color: #718096;
+  }
+
+  strong {
+    display: block;
+    font-size: 27px;
+    color: #17324d;
+    margin-top: 5px;
+  }
+
+  ion-icon {
+    font-size: 34px;
+    color: #1769aa;
+  }
+}
+
+.person-card {
+  margin: 0 0 15px;
+  border-radius: 16px;
+  border: 1px solid #e5edf5;
+  box-shadow: 0 3px 12px rgba(30, 65, 100, 0.05);
+
+  ion-card-content {
+    padding: 16px;
+  }
+}
+
+.person-information {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 17px;
+}
+
+.person-photo,
+.photo-missing {
+  width: 82px;
+  height: 92px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.photo-missing {
+  background: #e5f1fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1769aa;
+
+  ion-icon {
+    font-size: 35px;
+  }
+}
+
+.person-details {
+  min-width: 0;
+
+  h2 {
+    font-size: 15px;
+    color: #193650;
+    font-weight: 800;
+    margin: 0 0 7px;
+  }
+
+  p {
+    font-size: 11px;
+    color: #718096;
+    margin: 0 0 7px;
+    overflow-wrap: anywhere;
+  }
+
+  small {
+    font-size: 10px;
+    color: #8493a5;
+  }
+}
+
+.empty-state,
+.loading-state {
+  text-align: center;
+  padding: 35px 20px;
+  color: #718096;
+}
+
+.empty-state {
+  background: #ffffff;
+  border-radius: 16px;
+
+  ion-icon {
+    font-size: 48px;
+    color: #6794bb;
+  }
+
+  h2 {
+    font-size: 17px;
+    color: #193650;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+/* Tarjeta de cada persona */
+.person-card {
+  --background: #ffffff;
+  --color: #193650;
+
+  background: #ffffff !important;
+  color: #193650 !important;
+
+  border-radius: 18px;
+  margin: 0 0 18px;
+  border: 1px solid #e3ebf3;
+  box-shadow: 0 4px 14px rgba(30, 65, 100, 0.07);
+}
+
+/* Contenido de la tarjeta */
+.person-card ion-card-content {
+  --background: #ffffff;
+  background: #ffffff;
+  color: #193650;
+  padding: 18px;
+}
+
+/* Distribución de fotografía e información */
+.person-information {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+/* Fotografía */
+.person-photo {
+  width: 92px;
+  height: 105px;
+  object-fit: cover;
+  border-radius: 13px;
+  border: 1px solid #e1eaf2;
+}
+
+/* Cuando no hay fotografía */
+.photo-missing {
+  width: 92px;
+  height: 105px;
+  border-radius: 13px;
+  background: #eaf3fb;
+  color: #1769aa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    font-size: 38px;
+  }
+}
+
+/* Información de la persona */
+.person-details {
+  flex: 1;
+  min-width: 0;
+
+  h2 {
+    color: #193650;
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0 0 9px;
+  }
+
+  p {
+    color: #647b91;
+    font-size: 12px;
+    margin: 0 0 9px;
+  }
+
+  small {
+    color: #8493a5;
+    font-size: 11px;
+  }
+}
+
+/* Botón eliminar */
+.person-card ion-button {
+  --border-radius: 10px;
+  --color: #dc3545;
+  --border-color: #dc3545;
+  font-weight: 700;
+  margin: 0;
+}

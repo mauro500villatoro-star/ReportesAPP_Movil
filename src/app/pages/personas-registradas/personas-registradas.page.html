@@ -1,0 +1,119 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Personas registradas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="people-content">
+
+  <div class="people-container">
+
+    <section class="page-heading">
+      <div class="heading-icon">
+        <ion-icon name="people-outline"></ion-icon>
+      </div>
+
+      <h1>Personas registradas</h1>
+
+      <p>
+        Consulta y administra las personas que has registrado en FaceVerify.
+      </p>
+    </section>
+
+    <div class="summary-card">
+      <div>
+        <span>Total de registros</span>
+        <strong>{{ personas.length }}</strong>
+      </div>
+
+      <ion-icon name="people-outline"></ion-icon>
+    </div>
+
+    <div class="loading-state" *ngIf="cargando">
+      Cargando registros...
+    </div>
+
+    <div class="empty-state"
+      *ngIf="!cargando && personas.length === 0">
+
+      <ion-icon name="person-outline"></ion-icon>
+
+      <h2>No hay personas registradas</h2>
+
+      <p>
+        Cuando registres una persona, aparecerá en esta sección.
+      </p>
+
+      <ion-button routerLink="/register-person">
+        Registrar persona
+      </ion-button>
+
+    </div>
+
+    <div *ngIf="!cargando && personas.length > 0">
+
+      <ion-card class="person-card"
+        *ngFor="let persona of personas">
+
+        <ion-card-content>
+
+          <div class="person-information">
+
+            <img
+              *ngIf="fotografias[persona.id]"
+              [src]="fotografias[persona.id]"
+              [alt]="'Fotografía de ' + persona.nombre"
+              class="person-photo">
+
+            <div class="photo-missing"
+              *ngIf="!fotografias[persona.id]">
+
+              <ion-icon name="person-outline"></ion-icon>
+
+            </div>
+
+            <div class="person-details">
+
+              <h2>
+                {{ persona.nombre }} {{ persona.apellidos }}
+              </h2>
+
+              <p>
+                Identificación: {{ persona.identificacion }}
+              </p>
+
+              <small>
+                Registrado:
+                {{ persona.fechaRegistro | date:'dd/MM/yyyy HH:mm' }}
+              </small>
+
+            </div>
+
+          </div>
+
+          <ion-button
+            expand="block"
+            fill="outline"
+            color="danger"
+            (click)="confirmarEliminar(persona)">
+
+            <ion-icon name="trash-outline" slot="start"></ion-icon>
+
+            Eliminar registro
+
+          </ion-button>
+
+        </ion-card-content>
+
+      </ion-card>
+
+    </div>
+
+  </div>
+
+</ion-content>
